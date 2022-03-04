@@ -29,37 +29,23 @@ namespace WebTests
         [TestMethod]
         public void Playground_VerifyHomepage()
         {
-            var headerElements = driver.FindElements(By.TagName("h1"));
+            var homePage = new HomePage(driver);
 
-            IWebElement foundHeader = null;
-            foreach (var headerElement in headerElements)
-            {
-                if (headerElement.Text == "Web Playground")
-                {
-                    foundHeader = headerElement;
-                    break;
-                }
-            }
-
-            Assert.IsTrue(foundHeader.Displayed);
+            Assert.IsTrue(homePage.GetHeaderCalled("Web Playground").Displayed);
         }
 
         [TestMethod]
         public void Playground_VerifySubmitButton()
         {
-            const string Name = "Mark";
             //Arrange
+            const string Name = "Mark";
+            var homePage = new HomePage(driver);
 
             // Act
-            driver.FindElement(By.Id("forename")).SendKeys(Name);
-            driver.FindElement(By.Id("submit")).Click();
+            homePage.SubmitForename(Name);
 
             // Assert
-            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(2));
-            IWebElement popupElement = driver.FindElement(By.ClassName("popup-message"));
-            wait.Until(d => popupElement.Displayed);
-
-            Assert.AreEqual(expected: $"Hello {Name}", actual: popupElement.Text);
+            Assert.AreEqual(expected: $"Hello {Name}", actual: homePage.PopupElement.Text);
         }
     }
 }
