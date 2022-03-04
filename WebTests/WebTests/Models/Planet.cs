@@ -1,11 +1,5 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WebTests.Models
 {
@@ -32,14 +26,14 @@ namespace WebTests.Models
             }
         }
 
-        private static string RemoveKms(string distanceText)
-        {
-            return distanceText.Split(' ')[0];
-        }
-
         internal void ClickExplore()
         {
             ExploreButton.Click();
+        }
+
+        private static string RemoveKms(string distanceText)
+        {
+            return distanceText.Split(' ')[0];
         }
     }
 }

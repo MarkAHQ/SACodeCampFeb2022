@@ -1,8 +1,6 @@
 ﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using WebTests.MatchingStrategies;
 using WebTests.Models;
 
 namespace WebTests
