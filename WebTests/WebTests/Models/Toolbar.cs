@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace WebTests
+namespace WebTests.Models
 {
     internal class Toolbar
     {

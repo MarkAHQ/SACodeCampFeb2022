@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
+using WebTests.Models;
 
 namespace WebTests
 {
@@ -15,7 +16,8 @@ namespace WebTests
 
         public IWebElement SubmitButton => driver.FindElement(By.Id("submit"));
         public IWebElement ForenameInput => driver.FindElement(By.Id("forename"));
-        public IWebElement PopupMessage => driver.FindElement(By.ClassName("popup-message"));
+        public Popup PopupMessage => new(driver);
+        public Toolbar Toolbar => new(driver);
 
         public void ClickSubmitButton()
         {

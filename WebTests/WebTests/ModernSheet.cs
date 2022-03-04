@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using WebTests.Models;
 
 namespace WebTests
 {
@@ -15,7 +16,7 @@ namespace WebTests
 
         IWebElement StateDropDown => driver.FindElement(By.Id("state"));
 
-        public IWebElement PopupElement => driver.FindElement(By.ClassName("popup-message"));
+        public Popup PopupElement => new(driver);
 
         public IWebElement Email => driver.FindElement(By.Id("email"));
 
