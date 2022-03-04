@@ -42,7 +42,7 @@ namespace WebTests
             homePage.SubmitForename(Name);
 
             // Assert
-            Assert.AreEqual(expected: $"Hello {Name}", actual: homePage.PopupElement.Text);
+            Assert.AreEqual(expected: $"Hello {Name}", actual: homePage.PopupMessage.Text);
         }
     }
 }

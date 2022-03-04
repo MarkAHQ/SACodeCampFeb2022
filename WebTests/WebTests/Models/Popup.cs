@@ -18,8 +18,10 @@ namespace WebTests.Models
 
         private IWebElement element => driver.FindElement(By.ClassName("popup"));
 
-        public bool Displayed => element.Displayed;
+        private IWebElement popupTextElement => element.FindElement(By.ClassName("popup-message"));
 
-        public string Text => element.FindElement(By.ClassName("popup-message")).Text;
+        public bool Displayed => popupTextElement.Displayed;
+
+        public string Text => popupTextElement.Text;
     }
 }

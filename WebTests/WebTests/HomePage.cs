@@ -24,5 +24,25 @@ namespace WebTests
             SubmitButton.Click();
             new WebDriverWait(driver, TimeSpan.FromSeconds(2)).Until(d => PopupMessage.Displayed);
         }
+
+        internal IWebElement GetHeaderCalled(string headerName)
+        {
+            foreach (var header in driver.FindElements(By.TagName("h1")))
+            {
+                if (header.Text == headerName)
+                {
+                    return header;
+                }
+            }
+
+            throw new NotFoundException($"No such header called {headerName}");
+        }
+
+        internal void SubmitForename(string name)
+        {
+            ForenameInput.SendKeys(name);
+            SubmitButton.Click();
+            new WebDriverWait(driver, TimeSpan.FromSeconds(2)).Until(d => PopupMessage.Displayed);
+        }
     }
 }

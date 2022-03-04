@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using System;
 
 namespace WebTests.Models
 {
@@ -15,14 +16,33 @@ namespace WebTests.Models
         {
             get
             {
-                return driver.FindElement(By.ClassName("hidden-sm-and-down"))
-                             .FindElement(By.CssSelector("[aria-label=forms]"));
+                return GetToolbarButton("forms");
             }
+        }
+
+        IWebElement PlanetButton
+        {
+            get
+            {
+                return GetToolbarButton("planets");
+            }
+        }
+
+        private IWebElement GetToolbarButton(string buttonName)
+        {
+            return driver.FindElement(By.ClassName("hidden-sm-and-down"))
+                         .FindElement(By.CssSelector($"[aria-label={buttonName}]"));
         }
 
         internal void ClickFormButton()
         {
             FormButton.Click();
+        }
+
+
+        internal void ClickPlanets()
+        {
+            PlanetButton.Click();
         }
     }
 }
