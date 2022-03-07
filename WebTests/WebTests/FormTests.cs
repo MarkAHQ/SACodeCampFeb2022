@@ -8,24 +8,8 @@ using WebTests.Models;
 namespace WebTests
 {
     [TestClass]
-    public class FormTests
+    public class FormTests : TestsBase
     {
-        IWebDriver driver;
-
-        [TestInitialize]
-        public void Setup()
-        {
-            driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
-            driver.Url = "https://d18u5zoaatmpxx.cloudfront.net";
-        }
-
-        [TestCleanup]
-        public void Cleanup()
-        {
-            driver.Quit();
-        }
-
         [TestMethod]
         public void Playground_VerifyFeedback()
         {

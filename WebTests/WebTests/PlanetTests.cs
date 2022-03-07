@@ -4,28 +4,13 @@ using OpenQA.Selenium;
 using System;
 using WebTests.Models;
 using OpenQA.Selenium.Support.UI;
+using OpenQA.Selenium.Remote;
 
 namespace WebTests
 {
     [TestClass]
-    public class PlanetTests
+    public class PlanetTests : TestsBase
     {
-        private IWebDriver driver;
-
-        [TestInitialize]
-        public void Setup()
-        {
-            driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
-            driver.Url = "https://d18u5zoaatmpxx.cloudfront.net";
-        }
-
-        [TestCleanup]
-        public void Cleanup()
-        {
-            driver.Quit();
-        }
-
         [TestMethod]
         public void Playground_VerifyEarthExplore()
         {

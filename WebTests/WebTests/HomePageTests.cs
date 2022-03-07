@@ -1,28 +1,14 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Remote;
+using System;
 
 namespace WebTests
 {
     [TestClass]
-    public class HomePageTests
+    public class HomePageTests : TestsBase
     {
-        private IWebDriver driver;
-
-        [TestInitialize]
-        public void Setup()
-        {
-            driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
-            driver.Url = "https://d18u5zoaatmpxx.cloudfront.net";
-        }
-
-        [TestCleanup]
-        public void Cleanup()
-        {
-            driver.Quit();
-        }
-
         [TestMethod]
         public void Playground_VerifyHomepage()
         {
