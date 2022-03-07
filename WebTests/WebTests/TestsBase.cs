@@ -4,6 +4,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
 using System;
 
+[assembly: Parallelize(Workers = 4, Scope = ExecutionScope.ClassLevel)]
 namespace WebTests
 {
     [TestClass]
